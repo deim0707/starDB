@@ -22,13 +22,18 @@ export default class RandomPlanet extends Component {
     error: false
   };
 
-  constructor() {
-    super();
+
+
+  componentDidMount() {
     this.updatePlanet();
+    this.interval=setInterval(this.updatePlanet, 4000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   onPlanetLoaded = (planet) => {
-    this.setState({planet, loading: false})
+    this.setState({planet, loading: false, error: false})
   };
 
   onError = (err) => {
@@ -37,10 +42,9 @@ export default class RandomPlanet extends Component {
       loading: false
     })
   };
-
-  updatePlanet() {
-    // const id = Math.floor(Math.random()*25+2);
-    const id = 15;
+  //делаем в полях класса функцией стрелкой, когда передаём эту функцию в другую функцию
+  updatePlanet =() => {
+    const id = Math.floor(Math.random()*17+2);
     this.swapi
         .getPlanet(id)
         .then(this.onPlanetLoaded)
@@ -48,7 +52,6 @@ export default class RandomPlanet extends Component {
   }
 
   render() {
-
     const {planet, loading, error} = this.state;
 
     const errorMessage = error ? <ErrorIndicator/> : null;
