@@ -5,7 +5,9 @@ const StarshipDetailsView = ({starship}) => {
     return (
         <React.Fragment>
             <img className="person-image"
-                 src={`https://starwars-visualguide.com/assets/img/starships/${id}.jpg`} />
+                 src={`https://starwars-visualguide.com/assets/img/starships/${id}.jpg`}
+                 alt={name}
+            />
 
             <div className="card-body">
                 <h4>{name}</h4>

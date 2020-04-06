@@ -23,7 +23,6 @@ export default class PersonPage extends Component {
 
 /////////////////////////////////////////////
   render() {
-    console.log(this.props.typePerson)
     if (this.state.hasError) {
       return <ErrorIndicator />;
     }
@@ -91,6 +90,10 @@ export default class PersonPage extends Component {
             />
         );
         break;
+      }
+
+      default: {
+        return
       }
     }
 
