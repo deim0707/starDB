@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
-
 import './item-list.css';
 import Spinner from "../spinner";
 
 export default class ItemList extends Component {
-
-
     state = {
         itemList: null,
         loading: true
@@ -41,7 +38,6 @@ export default class ItemList extends Component {
         const spinner = loading ? <Spinner/> : null;
         // console.log(peopleList)
         const items = !loading ? this.renderItems(itemList) : null;
-
 
     return (
       <ul className="item-list list-group">

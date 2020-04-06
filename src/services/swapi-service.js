@@ -25,20 +25,20 @@ export  default class SwapiService {
             id: this._extractId(person),
             name: person.name,
             gender: person.gender,
-            birthYear: person.birthYear,
-            eyeColor: person.eyeColor,
+            birthYear: person.birth_year,
+            eyeColor: person.eye_color,
         }
     };
     //получает список всех людей. преобразует в вид для стейта каждого в полученном массиве
     getAllPeople = async () => {
         const res= await this.GetResource(`/people/`);
         return res.results.map(this._transformPerson);
-    }
+    };
     //получает определённого персонажа, переводит его в вид объекта для стейта
     getPerson = async (id) => {
         const people= await this.GetResource(`/people/${id}`);
         return  this._transformPerson(people);
-    }
+    };
 ////////////planet
     _transformPlanet = (planet) => {
         return {
@@ -48,15 +48,15 @@ export  default class SwapiService {
             rotationPeriod: planet.rotation_period,
             diameter: planet.diameter
         }
-    }
+    };
     getAllPlanets = async () => {
         const res= await this.GetResource(`/planets/`);
         return res.results.map(this._transformPlanet);
-    }
+    };
     getPlanet= async (id) => {
         const planet = await this.GetResource(`/planets/${id}`);
         return this._transformPlanet(planet);
-    }
+    };
 
     ////////////starship
     _transformStarship = (starship) => {
@@ -71,15 +71,15 @@ export  default class SwapiService {
             passengers: starship.passengers,
             cargoCapacity: starship.cargoCapacity
         }
-    }
+    };
     getAllStarships = async () => {
         const res= await this.GetResource(`/starships/`);
         return res.results.map(this._transformStarship);
-    }
+    };
     getStarship= async (id) => {
         const starship = await this.GetResource(`/starships/${id}`);
         return this._transformStarship(starship)
-    }
+    };
 
 
 }
