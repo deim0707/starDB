@@ -33,10 +33,6 @@ const StarshipDetailsView = ({starship}) => {
                         <span>{crew}</span>
                     </li>
                     <li className="list-group-item">
-                        <span className="term">crew:</span>
-                        <span>{crew}</span>
-                    </li>
-                    <li className="list-group-item">
                         <span className="term">passengers:</span>
                         <span>{passengers}</span>
                     </li>
