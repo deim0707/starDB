@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import SwapiService from '../../services/swapi-service'
 
 import './random-planet.css';
@@ -12,6 +13,11 @@ export default class RandomPlanet extends Component {
     updateInterval: 4000
   };
 
+  //установили тип ожидаемого значения
+  static propTypes = {
+    updateInterval: PropTypes.number
+  };
+
   swapi = new SwapiService();
 
   // state = {
@@ -20,7 +26,7 @@ export default class RandomPlanet extends Component {
   //   population: null,
   //   rotationPeriod: null,
   //   diameter: null
-  // };
+  // }; — сейчас в Planet
   state = {
     planet: {},
     loading: true,

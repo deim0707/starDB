@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 import './row.css';
 import ErrorBoundry from "../error-boundry";
@@ -18,6 +19,13 @@ const Row = ({left, right}) => {
             </div>
         </div>
     )
+};
+
+//проверяем, что то, что в Лест и Райт будет то, что можно отрендерить в jsx
+//ещё есть PropTypes.element - проверяет, что это реакт элемент
+Row.propTypes = {
+    left: PropTypes.node,
+    right: PropTypes.node
 };
 
 export default Row;

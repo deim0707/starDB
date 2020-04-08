@@ -36,7 +36,6 @@ export default class ItemList extends Component {
         const {itemList, loading} = this.state;
 
         const spinner = loading ? <Spinner/> : null;
-        // console.log(peopleList)
         const items = !loading ? this.renderItems(itemList) : null;
 
     return (
