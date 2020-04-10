@@ -27,7 +27,7 @@ export default class ItemDetails extends Component {
     }
   }
 
-  onError = (err) => {
+  onError = () => {
     this.setState({error: true})
   };
 
@@ -50,20 +50,23 @@ export default class ItemDetails extends Component {
 
     const {error} = this.state;
 
-    const doSelectItem = (!this.state.item && !error) ? <span>Select a person from list</span> : null;
     const errorMessage = error ? <ErrorIndicator/> : null;
+    let doSelectItem;
     let content;
 
 
 
     if (this.props.typePerson === 'people') {
       content = this.state.item ? <PeopleDetailsView person={this.state.item}/> : null;
+      doSelectItem = (!this.state.item && !error) ? <span>Select a <b>people</b> from list</span> : null;
     }
     if (this.props.typePerson === 'planet') {
       content = this.state.item ? <PlanetDetailsView planet={this.state.item}/> : null;
+      doSelectItem = (!this.state.item && !error) ? <span>Select a <b>planet</b> from list</span> : null;
     }
     if (this.props.typePerson === 'starship') {
       content = this.state.item ? <StarshipDetailsView starship={this.state.item}/> : null;
+      doSelectItem = (!this.state.item && !error) ? <span>Select a <b>starship</b> from list</span> : null;
     }
 
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 import './header.css';
 
@@ -6,19 +7,18 @@ const Header = () => {
   return (
     <div className="header d-flex">
       <h3>
-        <a href="#">
-          Star DB
-        </a>
+          {/*Link в отличие от a href НЕ ПЕРЕЗАГРУЖАЕТ страницу на самом деле*/}
+          <Link to='/'>Star DB</Link>
       </h3>
       <ul className="d-flex">
         <li>
-          <a href="#">People</a>
+            <Link to='/people'>People</Link>
         </li>
         <li>
-          <a href="#">Planets</a>
+            <Link to='/planet'>Planets</Link>
         </li>
         <li>
-          <a href="#">Starships</a>
+            <Link to='/starship'>Starships</Link>
         </li>
       </ul>
     </div>
