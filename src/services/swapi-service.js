@@ -1,6 +1,6 @@
 export default class SwapiService {
   _apiBase = 'http://localhost:5000';
-  _imageBase = '/assets/img';
+
 
   getResource = async (url) => {
     const res = await fetch(`${this._apiBase}${url}`);
@@ -34,24 +34,12 @@ export default class SwapiService {
 
   getAllStarships = async () => {
     const res = await this.getResource(`/starships/`);
-    return res.map(this._transformStarship).slice(4, 14);
+    return res.map(this._transformStarship).slice(6, 16);
   };
 
   getStarship = async (id) => {
     const starship = await this.getResource(`/starships/${id}/`);
     return this._transformStarship(starship);
-  };
-
-  getPersonImage = ({id}) => {
-    return `${this._imageBase}/characters/${id}.jpg`
-  };
-
-  getStarshipImage = ({id}) => {
-    return `${this._imageBase}/starships/${id}.jpg`
-  };
-
-  getPlanetImage = ({id}) => {
-    return `${this._imageBase}/planets/${id}.jpg`
   };
 
   _transformPlanet = (planet) => {
