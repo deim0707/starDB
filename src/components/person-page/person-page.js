@@ -21,7 +21,6 @@ export default class PersonPage extends Component {
   };
 
 
-/////////////////////////////////////////////
   render() {
     if (this.state.hasError) {
       return <ErrorIndicator />;
@@ -100,7 +99,7 @@ export default class PersonPage extends Component {
 
 
     return (
-          <Row left={itemList} right={personDetails} />
+        <Row left={itemList} right={personDetails} />
     );
   }
 }

@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 
 import './item-details.css';
-import SwapiService from "../../services/swapi-service";
 import ErrorIndicator from "../error-indicator";
+
 import PlanetDetailsView from "../sw-pages/planet-page";
 import PeopleDetailsView from "../sw-pages/people-page";
 import StarshipDetailsView from "../sw-pages/starship-page";
 
 export default class ItemDetails extends Component {
 
-  swapi = new SwapiService();
 
   state = {
     item: null,
@@ -45,7 +44,6 @@ export default class ItemDetails extends Component {
   }
 
 
-//////////////////////////////////////////////////////
   render() {
 
     const {error} = this.state;

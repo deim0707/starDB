@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import React from 'react';
+import {HashRouter as Router, Route} from 'react-router-dom';
 
 import './app.css';
 import Header from '../header';
@@ -7,13 +7,12 @@ import RandomPlanet from '../random-planet';
 import PersonPage from "../person-page";
 import WelcomePage from "../sw-pages/welcome-page";
 
-export default class App extends Component  {
+const App = () =>  {
 
-    render() {
         return (
             <Router>
                 <div className='mx-3'>
-                    <Header />
+                    <Header/>
                     <RandomPlanet updateInterval={undefined}/> {/*если пропс будет указан undefined, то используется значение по умолчанию */}
 
                     <Route path='/' component={WelcomePage} exact />  {/*exact - строгое указание того, что роутер должен искать не наличие пути на компонент. а строгое ему соответствие. написание exact === exact={true}*/}
@@ -25,6 +24,8 @@ export default class App extends Component  {
                 </div>
             </Router>
         );
-    }
+
 };
+
+export default App;
 

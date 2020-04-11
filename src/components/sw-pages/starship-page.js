@@ -1,11 +1,16 @@
 import React from "react";
+import SwapiService from "../../services/swapi-service";
 
 const StarshipDetailsView = ({starship}) => {
     const {id, name, model, manufacturer, costInCredits, length, crew, passengers, cargoCapacity} = starship;
+    const swapi = new SwapiService();
     return (
         <React.Fragment>
             <img className="person-image"
-                 src={`https://starwars-visualguide.com/assets/img/starships/${id}.jpg`}
+                 src={swapi.getStarshipImage(id)}
+                 // src={`../../../public/assets/img/starships/${id}.jpg`}
+                // src='../../../public/assets/img/starships/10.jpg'
+
                  alt={name}
             />
 
