@@ -7,6 +7,7 @@ import Row from '../row'
 
 import './person-page.css';
 import SwapiService from "../../services/swapi-service";
+import {SwapiServiceConsumer} from "../swapi-service-context";
 
 export default class PersonPage extends Component {
 
@@ -33,22 +34,48 @@ export default class PersonPage extends Component {
     switch (this.props.typePerson) {
 
       case "planet": {
-        itemList = (
-            <ItemList
-                onItemSelected={this.onItemSelected}
-                getData={this.swapi.getAllPlanets}
-                renderItem={(item=> `${item.name}`)}
-            />
 
+        itemList = (
+            <SwapiServiceConsumer>
+              {
+                ({getAllPlanets}) => {
+                  return (
+                      <ItemList
+                          onItemSelected={this.onItemSelected}
+                          getData={getAllPlanets}
+                          renderItem={(item=> `${item.name}`)}
+                      />
+                  )
+                }
+              }
+            </SwapiServiceConsumer>
         );
+
+        // personDetails = (
+        //     <ItemDetails
+        //         itemId={this.state.selectedPerson}
+        //         getData={this.swapi.getPlanet}
+        //         typePerson={this.props.typePerson}
+        //     />
+        // );
 
         personDetails = (
-            <ItemDetails
-                itemId={this.state.selectedPerson}
-                getData={this.swapi.getPlanet}
-                typePerson={this.props.typePerson}
-            />
+            <SwapiServiceConsumer>
+              {
+                ({getPlanet}) => {
+                  return (
+                    <ItemDetails
+                        itemId={this.state.selectedPerson}
+                        getData={this.swapi.getPlanet}
+                        typePerson={this.props.typePerson}
+                    />
+                  )
+                }
+              }
+            </SwapiServiceConsumer>
         );
+
+
         break;
       }
 
