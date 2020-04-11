@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {HashRouter as Router, Route} from 'react-router-dom';
 
 import './app.css';
@@ -7,9 +7,8 @@ import RandomPlanet from '../random-planet';
 import PersonPage from "../person-page";
 import WelcomePage from "../sw-pages/welcome-page";
 
-export default class App extends Component  {
+const App = () =>  {
 
-    render() {
         return (
             <Router>
                 <div className='mx-3'>
@@ -25,6 +24,8 @@ export default class App extends Component  {
                 </div>
             </Router>
         );
-    }
+
 };
+
+export default App;
 

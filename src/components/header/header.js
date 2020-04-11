@@ -3,9 +3,8 @@ import {Link} from 'react-router-dom';
 
 import './header.css';
 
-const Header = ({fetchOff}) => {
+const Header = () => {
   return (
-
   <div className="header d-flex">
       <h3>
           {/*Link в отличие от a href НЕ ПЕРЕЗАГРУЖАЕТ страницу на самом деле*/}
@@ -23,7 +22,6 @@ const Header = ({fetchOff}) => {
           </li>
       </ul>
   </div>
-
   );
 };
 
