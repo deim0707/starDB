@@ -6,7 +6,6 @@ import Header from '../header';
 import RandomPlanet from '../random-planet';
 import PersonPage from "../person-page";
 import WelcomePage from "../sw-pages/welcome-page";
-// import DummySwapiService from "../../services/dummy-swapi-service";
 import SwapiService from "../../services/swapi-service";
 import {SwapiServiceProvider} from '../swapi-service-context'
 
@@ -16,22 +15,12 @@ export default class App extends Component  {
         swapiService: new SwapiService()
     };
 
-    // fetchOff = () => {
-    //     this.setState(({ swapiService }) => {
-    //         const Service = swapiService instanceof SwapiService ?
-    //             DummySwapiService : SwapiService;
-    //         return {
-    //             swapiService: new Service()
-    //         };
-    //     });
-    // };
-
     render() {
         return (
             <SwapiServiceProvider value={this.state.swapiService}>
                 <Router>
                     <div className='mx-3'>
-                        <Header fetchOff={this.fetchOff}/>
+                        <Header/>
                         <RandomPlanet updateInterval={undefined}/> {/*если пропс будет указан undefined, то используется значение по умолчанию */}
 
                         <Route path='/' component={WelcomePage} exact />  {/*exact - строгое указание того, что роутер должен искать не наличие пути на компонент. а строгое ему соответствие. написание exact === exact={true}*/}
