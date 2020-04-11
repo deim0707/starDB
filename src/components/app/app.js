@@ -13,7 +13,7 @@ import {SwapiServiceProvider} from '../swapi-service-context'
 export default class App extends Component  {
 
     state = {
-        swapiService: new SwapiService()
+        swapiService: new DummySwapiService()
     };
 
     fetchOff = () => {
