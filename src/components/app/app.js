@@ -8,23 +8,21 @@ import PersonPage from "../person-page";
 import WelcomePage from "../sw-pages/welcome-page";
 
 const App = () =>  {
+    return (
+        <Router>
+            <div className='mx-3'>
+                <Header/>
+                <RandomPlanet updateInterval={undefined}/> {/*если пропс будет указан undefined, то используется значение по умолчанию */}
 
-        return (
-            <Router>
-                <div className='mx-3'>
-                    <Header/>
-                    <RandomPlanet updateInterval={undefined}/> {/*если пропс будет указан undefined, то используется значение по умолчанию */}
+                <Route path='/' component={WelcomePage} exact />  {/*exact - строгое указание того, что роутер должен искать не наличие пути на компонент. а строгое ему соответствие. написание exact === exact={true}*/}
 
-                    <Route path='/' component={WelcomePage} exact />  {/*exact - строгое указание того, что роутер должен искать не наличие пути на компонент. а строгое ему соответствие. написание exact === exact={true}*/}
-
-                    <Route path="/people" render={()=><PersonPage typePerson='people'/>} />
-                    <Route path="/planet" render={(props)=><PersonPage typePerson='planet' {...props}/> } /> {/*не обязательная вариация*/}
-                    <Route path="/starship" exact render={()=><PersonPage typePerson='starship'/>} />
-                    <Route path="/starship/:id" render={()=><PersonPage typePerson='starship'/>} /> {/*заготовка под отображение по определённому пути конкретной Персоны*/}
-                </div>
-            </Router>
-        );
-
+                <Route path="/people" render={()=><PersonPage typePerson='people'/>} />
+                <Route path="/planet" render={(props)=><PersonPage typePerson='planet' {...props}/> } /> {/*не обязательная вариация*/}
+                <Route path="/starship" exact render={()=><PersonPage typePerson='starship'/>} />
+                <Route path="/starship/:id" render={()=><PersonPage typePerson='starship'/>} /> {/*заготовка под отображение по определённому пути конкретной Персоны*/}
+            </div>
+        </Router>
+    );
 };
 
 export default App;
