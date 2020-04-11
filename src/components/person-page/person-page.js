@@ -6,12 +6,15 @@ import ErrorIndicator from '../error-indicator/error-indicator';
 import Row from '../row'
 
 import './person-page.css';
-import SwapiService from "../../services/swapi-service";
+
+
 import {SwapiServiceConsumer} from "../swapi-service-context";
+
+
 
 export default class PersonPage extends Component {
 
-  swapi = new SwapiService();
+
 
   state = {
     selectedPerson: null,
@@ -20,7 +23,6 @@ export default class PersonPage extends Component {
   onItemSelected = (selectedPerson) => {
     this.setState({ selectedPerson });
   };
-
 
 /////////////////////////////////////////////
   render() {
@@ -34,7 +36,6 @@ export default class PersonPage extends Component {
     switch (this.props.typePerson) {
 
       case "planet": {
-
         itemList = (
             <SwapiServiceConsumer>
               {
@@ -51,14 +52,6 @@ export default class PersonPage extends Component {
             </SwapiServiceConsumer>
         );
 
-        // personDetails = (
-        //     <ItemDetails
-        //         itemId={this.state.selectedPerson}
-        //         getData={this.swapi.getPlanet}
-        //         typePerson={this.props.typePerson}
-        //     />
-        // );
-
         personDetails = (
             <SwapiServiceConsumer>
               {
@@ -66,7 +59,7 @@ export default class PersonPage extends Component {
                   return (
                     <ItemDetails
                         itemId={this.state.selectedPerson}
-                        getData={this.swapi.getPlanet}
+                        getData={getPlanet}
                         typePerson={this.props.typePerson}
                     />
                   )
@@ -75,47 +68,78 @@ export default class PersonPage extends Component {
             </SwapiServiceConsumer>
         );
 
-
         break;
       }
 
       case "people": {
         itemList = (
-            <ItemList
-                onItemSelected={this.onItemSelected}
-                getData={this.swapi.getAllPeople}
-                renderItem={(item=> `${item.name}`)}
-            />
-
+            <SwapiServiceConsumer>
+              {
+                ({getAllPeople}) => {
+                  return (
+                      <ItemList
+                          onItemSelected={this.onItemSelected}
+                          getData={getAllPeople}
+                          renderItem={(item=> `${item.name}`)}
+                      />
+                  )
+                }
+              }
+            </SwapiServiceConsumer>
         );
 
         personDetails = (
-            <ItemDetails
-                itemId={this.state.selectedPerson}
-                getData={this.swapi.getPerson}
-                typePerson={this.props.typePerson}
-            />
+            <SwapiServiceConsumer>
+              {
+                ({getPerson}) => {
+                  return (
+                      <ItemDetails
+                          itemId={this.state.selectedPerson}
+                          getData={getPerson}
+                          typePerson={this.props.typePerson}
+                      />
+                  )
+                }
+              }
+            </SwapiServiceConsumer>
         );
+
         break;
       }
 
       case "starship": {
         itemList = (
-            <ItemList
-                onItemSelected={this.onItemSelected}
-                getData={this.swapi.getAllStarships}
-                renderItem={(item=> `${item.name}`)}
-            />
-
+            <SwapiServiceConsumer>
+              {
+                ({getAllStarships}) => {
+                  return (
+                      <ItemList
+                          onItemSelected={this.onItemSelected}
+                          getData={getAllStarships}
+                          renderItem={(item=> `${item.name}`)}
+                      />
+                  )
+                }
+              }
+            </SwapiServiceConsumer>
         );
 
         personDetails = (
-            <ItemDetails
-                itemId={this.state.selectedPerson}
-                getData={this.swapi.getStarship}
-                typePerson={this.props.typePerson}
-            />
+            <SwapiServiceConsumer>
+              {
+                ({getStarship}) => {
+                  return (
+                      <ItemDetails
+                          itemId={this.state.selectedPerson}
+                          getData={getStarship}
+                          typePerson={this.props.typePerson}
+                      />
+                  )
+                }
+              }
+            </SwapiServiceConsumer>
         );
+
         break;
       }
 
