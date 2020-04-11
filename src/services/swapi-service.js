@@ -12,12 +12,12 @@ export  default class SwapiService {
 
         const body = await res.json();
         return body
-    }
+    };
 
     _extractId = (item) => {
         const idRegExp = /\/([0-9]*)\/$/;
         return item.url.match(idRegExp)[1];
-    }
+    };
     ////////////people
     //преобразует объект в форму объекта для стейта
     _transformPerson = (person) =>  {
