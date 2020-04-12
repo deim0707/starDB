@@ -24,7 +24,11 @@ export default class PersonPage extends Component {
     this.setState({ selectedPerson });
   };
 
+<<<<<<< HEAD
 /////////////////////////////////////////////
+=======
+
+>>>>>>> newBranch
   render() {
     if (this.state.hasError) {
       return <ErrorIndicator />;
@@ -151,7 +155,7 @@ export default class PersonPage extends Component {
 
 
     return (
-          <Row left={itemList} right={personDetails} />
+        <Row left={itemList} right={personDetails} />
     );
   }
 }
