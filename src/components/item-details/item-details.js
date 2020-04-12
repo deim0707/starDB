@@ -9,7 +9,6 @@ import StarshipDetailsView from "../sw-pages/starship-page";
 
 export default class ItemDetails extends Component {
 
-
   state = {
     item: null,
     error: false
@@ -73,8 +72,6 @@ export default class ItemDetails extends Component {
         {doSelectItem}
         {errorMessage} 
         {content}
-
-
       </div>
     )
   }

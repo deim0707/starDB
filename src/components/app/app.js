@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {HashRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 
 import './app.css';
 import Header from '../header';
@@ -22,7 +22,8 @@ const App = () =>  {
                     <Route path="/starship" exact render={()=><PersonPage typePerson='starship'/>} />
                     <Route path="/starship/:id" render={()=><PersonPage typePerson='starship'/>} /> {/*заготовка под отображение по определённому пути конкретной Персоны*/}
 
-                    <Route render={()=><h2>Page not found</h2>}/> {/*Route без указания страницы, заключённый в Switch будет срабатывать, если указанная страница не найдена*/}
+                    {/*<Redirect to='/'/> /!*работает только с BrowserRouter*!/*/}
+                    {/*<Route render={()=><h2>Page not found</h2>} /> /!*Route без указания страницы, заключённый в Switch будет срабатывать, если указанная страница не найдена*!/*/}
                 </div>
             </Switch>
         </Router>

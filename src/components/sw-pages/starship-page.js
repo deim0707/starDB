@@ -5,7 +5,7 @@ const StarshipDetailsView = ({starship}) => {
     return (
         <React.Fragment>
             <img className="person-image"
-                src={`/assets/img/starships/${id}.jpg`}
+                src={`./assets/img/starships/${id}.jpg`}
                  alt={name}
             />
 
