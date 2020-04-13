@@ -5,7 +5,7 @@ import './header.css';
 
 const Header = ({fetchOff}) => {
   return (
-<<<<<<< HEAD
+
     <div className="header d-flex justify-content-between align-items-center">
 
       <div className="header d-flex">
@@ -46,7 +46,7 @@ const Header = ({fetchOff}) => {
           </li>
       </ul>
   </div>
->>>>>>> newBranch
+
   );
 };
 
