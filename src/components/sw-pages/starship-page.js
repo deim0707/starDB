@@ -5,11 +5,11 @@ const StarshipDetailsView = ({starship}) => {
     return (
         <React.Fragment>
             <img className="person-image"
-                src={`./assets/img/starships/${id}.jpg`}
+                 src={`https://starwars-visualguide.com/assets/img/starships/${id}.jpg`}
                  alt={name}
             />
 
-            <div className="card-body" style={{paddingTop: '0'}}>
+            <div className="card-body">
                 <h4>{name}</h4>
                 <ul className="list-group list-group-flush">
                     <li className="list-group-item">

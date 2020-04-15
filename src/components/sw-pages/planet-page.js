@@ -5,7 +5,7 @@ const PlanetDetailsView = ({planet}) => {
     return (
         <React.Fragment>
             <img className="person-image"
-                 src={`./assets/img/planets/${id}.jpg`}
+                 src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
                  alt={name}
             />
 
