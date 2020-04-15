@@ -1,7 +1,7 @@
 import React from "react";
 
 const StarshipDetailsView = ({starship}) => {
-    const {id, name, model, manufacturer, costInCredits, length, crew, passengers, cargoCapacity} = starship;
+    const {id, name, model, manufacturer, length, crew, passengers, cargoCapacity} = starship;
     return (
         <React.Fragment>
             <img className="person-image"
@@ -19,10 +19,6 @@ const StarshipDetailsView = ({starship}) => {
                     <li className="list-group-item">
                         <span className="term">Manufacturer:</span>
                         <span>{manufacturer}</span>
-                    </li>
-                    <li className="list-group-item">
-                        <span className="term">Cost InC redits:</span>
-                        <span>{costInCredits}</span>
                     </li>
                     <li className="list-group-item">
                         <span className="term">length:</span>
