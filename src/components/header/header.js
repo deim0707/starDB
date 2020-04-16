@@ -11,7 +11,7 @@ const Header = () => {
                 <Link to='/'>Star DB</Link>
             </h3>
             <ul className="d-flex">
-                <li>
+                <li className='active'>
                     <Link to='/people/'>People</Link>
                 </li>
                 <li>
