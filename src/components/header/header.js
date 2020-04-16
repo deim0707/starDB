@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 
 import './header.css';
 
@@ -11,14 +11,14 @@ const Header = () => {
                 <Link to='/'>Star DB</Link>
             </h3>
             <ul className="d-flex">
-                <li className='active'>
-                    <Link to='/people/'>People</Link>
+                <li>
+                    <NavLink to='/people/' exact activeClassName='active'>People</NavLink >
                 </li>
                 <li>
-                    <Link to='/planet/'>Planets</Link>
+                    <NavLink to='/planet/' exact activeClassName='active'>Planets</NavLink >
                 </li>
                 <li>
-                    <Link to='/starship/'>Starships</Link>
+                    <NavLink to='/starship/' exact activeClassName='active'>Starships</NavLink>
                 </li>
             </ul>
         </div>

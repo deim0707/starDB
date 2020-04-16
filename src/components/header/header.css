@@ -6,8 +6,11 @@
 .header ul li {
   list-style: none;
   margin: 0;
-  padding: .5rem 1rem;
   border-radius: 3px;
+  display: flex;
+}
+.header ul li a {
+  padding: .5rem 1rem;
 }
 
 .header ul li:hover {
@@ -24,4 +27,15 @@
 
 .header h3 a:hover {
   color: #00bc8c;
+}
+
+.active {
+  border-bottom: 1px solid #007053;
+}
+
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
+  * {
+    font-size: 1;
+  }
 }
