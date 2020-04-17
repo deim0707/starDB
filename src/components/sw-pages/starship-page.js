@@ -21,15 +21,15 @@ const StarshipDetailsView = ({starship}) => {
                         <span>{manufacturer}</span>
                     </li>
                     <li className="list-group-item">
-                        <span className="term">length:</span>
+                        <span className="term">Length:</span>
                         <span>{length}</span>
                     </li>
                     <li className="list-group-item">
-                        <span className="term">crew:</span>
+                        <span className="term">Crew:</span>
                         <span>{crew}</span>
                     </li>
                     <li className="list-group-item">
-                        <span className="term">passengers:</span>
+                        <span className="term">Passengers:</span>
                         <span>{passengers}</span>
                     </li>
                     <li className="list-group-item">
