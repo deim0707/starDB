@@ -21,3 +21,16 @@
 .random-planet .list-group-item .term {
   margin-right: .5rem;
 }
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
+  .random-planet {
+    padding: 0;
+    font-size: .7rem;
+  }
+  .random-planet .planet-image {
+    margin-right: 10px;
+  }
+  .random-planet .list-group {
+    margin: 0;
+  }
+}
